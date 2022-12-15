@@ -27,6 +27,6 @@ public class PartTimeWage {
         int empWage;
 
         empWage = wagePerHour * empHours;
-        System.out.println("Daily Emp Wage is : " + empWage);
+        System.out.println("Part Time Emp Wage is : " + empWage);
     }
 }
