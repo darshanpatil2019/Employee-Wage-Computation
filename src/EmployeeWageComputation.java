@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class EmployeeWageComputation {
-    //constant
+    //constants
     static final int IS_FULL_TIME = 1;
     static final int IS_PART_TIME = 2;
 
