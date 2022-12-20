@@ -1,23 +1,30 @@
 import java.util.ArrayList;
 
 public class EmployeeWageBuilder implements EmployeeWage {
-    private int noOfCompanies = 0;
-
     //ArrayList for Company Wage Object
     ArrayList<CompanyEmpWage> lstCompanyEmpWages;
+    private int noOfCompanies = 0;
 
     public EmployeeWageBuilder() {
         lstCompanyEmpWages = new ArrayList<>();
     }
 
+    public static void main(String[] args) {
+
+        EmployeeWageBuilder employeeWageBuilder = new EmployeeWageBuilder();
+        employeeWageBuilder.addCompanyEmpWages("Accenture", 20, 25, 100);
+        employeeWageBuilder.addCompanyEmpWages("Wipro", 25, 30, 100);
+        employeeWageBuilder.calculateEmpWage();
+    }
+
     private void addCompanyEmpWages(String company, int wagePerHr, int numOfWorkingDays, int maxHrsPerMonth) {
-        lstCompanyEmpWages.add(new CompanyEmpWage(company,wagePerHr,numOfWorkingDays,maxHrsPerMonth));
+        lstCompanyEmpWages.add(new CompanyEmpWage(company, wagePerHr, numOfWorkingDays, maxHrsPerMonth));
     }
 
     public void calculateEmpWage() {
         for (CompanyEmpWage companyEmpWage : lstCompanyEmpWages) {
             companyEmpWage.setTotalEmpWage(this.calculateEmpWage(companyEmpWage));
-            System.out.println(companyEmpWage.toString());
+            System.out.println(companyEmpWage);
         }
     }
 
@@ -26,7 +33,7 @@ public class EmployeeWageBuilder implements EmployeeWage {
         // Local Variables
         int empHrs = 0, totalEmpHrs = 0, totalWorkingDays = 0;
         //Compute Emp Wage for Month
-        while( totalEmpHrs <= companyEmpWage.maxHrsPerMonth && totalWorkingDays < companyEmpWage.numOfWorkingDays) {
+        while (totalEmpHrs <= companyEmpWage.maxHrsPerMonth && totalWorkingDays < companyEmpWage.numOfWorkingDays) {
             totalWorkingDays++;     //Incrementing Working Days
             double empCheck = Math.floor(Math.random() * 10) % 3;
 
@@ -45,16 +52,8 @@ public class EmployeeWageBuilder implements EmployeeWage {
                     break;
             }
             totalEmpHrs += empHrs;
-            System.out.println("Day No :"+ totalWorkingDays +" Emp Hrs: "+ empHrs);
+            System.out.println("Day No :" + totalWorkingDays + " Emp Hrs: " + empHrs);
         }
         return totalEmpHrs * companyEmpWage.wagePerHr;
-    }
-
-    public static void main(String[] args) {
-
-        EmployeeWageBuilder employeeWageBuilder = new EmployeeWageBuilder();
-        employeeWageBuilder.addCompanyEmpWages("Accenture",20,25,100);
-        employeeWageBuilder.addCompanyEmpWages("VODAFONE",25,30,100);
-        employeeWageBuilder.calculateEmpWage();
     }
 }
