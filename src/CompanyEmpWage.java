@@ -6,7 +6,7 @@ public class CompanyEmpWage {
     public int maxHrsPerMonth;
     public int totalEmpWage;
 
-    //Parameterised Constructor for Initializing the Variables
+    //Parameterised Constructor for Initializing Variables
     public CompanyEmpWage(String companyName, int wagePerHr, int numOfWorkingDays, int maxHrsPerMonth) {
         this.companyName = companyName;
         this.wagePerHr = wagePerHr;
