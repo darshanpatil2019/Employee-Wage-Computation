@@ -1,5 +1,5 @@
 public interface EmployeeWage {
-    //Constants for class
+    //Constants for Class
     int IS_PART_TIME = 1;
     int IS_FULL_TIME = 2;
 
